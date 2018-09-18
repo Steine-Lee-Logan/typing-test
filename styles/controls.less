@@ -1,0 +1,122 @@
+﻿/*colors begin*/
+@COLORS_CLOSE_BTN_BG: red;
+@COLORS_CLOSE_BTN_BG_HOVER: darkred;
+@COLORS_OVERLAY_BG: black;
+@COLORS_MODAL_WINDOW_BG: white;
+@COLORS_OVERLAY_BG: black;
+@COLORS_VALID_INPUT: #7dae7d;
+@COLORS_INVALID_INPUT: #ba7777;
+@COLORS_TIMER_BUTTON_BG: white;
+@COLORS_TIMER_BUTTON_BG_HOVER: black;
+@COLORS_TIMER_BUTTON_TEXT: black;
+@COLORS_TIMER_BUTTON_TEXT_HOVER: white;
+@COLORS_TIME_LEFT: black;
+/*colors end*/
+
+/*controls styles begin*/
+.full-screen {position: fixed; top: 0; bottom: 0; left: 0; right: 0;}
+
+.control { 
+    /*ModalWindow begin*/
+    &.global-overlay {
+        .full-screen;
+        display: none;
+        
+        .transparent-bg {
+            .full-screen;
+            background-color: @COLORS_OVERLAY_BG;
+            opacity: 0.7;
+        }
+
+        .content-wrapper {
+            opacity: 0;
+            padding: 20px;
+            background-color: @COLORS_MODAL_WINDOW_BG;
+            position: absolute;
+
+            .title-block {
+                font-size: 18px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .close-btn {
+                display: block;
+                position: absolute;
+                top: -20px;
+                right: -20px;
+                width: 20px;
+                height: 20px;
+                background-color: @COLORS_CLOSE_BTN_BG;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: @COLORS_CLOSE_BTN_BG_HOVER;
+                }
+            }
+        }
+    }
+    /*ModalWindow end*/
+
+    /*TimePicker begin*/
+    &.time-picker {
+        input {
+            font-size: 12px;
+            width: 40px;
+
+            &:focus {
+                outline: none; 
+            }
+
+            &.valid-input {
+                border: 1px solid green; 
+                background-color: @COLORS_VALID_INPUT;
+
+            }
+
+            &.invalid-input {
+                border: 1px solid red; 
+                background-color: @COLORS_INVALID_INPUT;
+            }
+        }
+    }
+    /*TimePicker*/
+
+    /*VisualTimer begin*/
+    &.timer {
+        display: none;
+        background-color: @COLORS_MODAL_WINDOW_BG;
+        padding: 15px 0 0 0;
+
+        .mixed {
+            .dig {
+                margin: 0 0 10px 0;
+            }
+        }        
+
+        span {
+            display: inline-block;
+            margin: 0;
+            padding: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: @COLORS_TIMER_BUTTON_BG_HOVER;
+                color: @COLORS_TIMER_BUTTON_TEXT_HOVER;
+            }
+        }
+
+        .time-left-wrapper {
+            .time-left {
+                display: block;
+                height: 10px;
+                width: 100%;
+                text-align: center;
+                opacity: 0.5;
+                background-color: @COLORS_TIME_LEFT;
+            }
+        }
+    }
+    /*VisualTimer end*/   
+}
+/*controls styles end*/
